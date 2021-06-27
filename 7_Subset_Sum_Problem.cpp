@@ -2,6 +2,47 @@
 using namespace std;
 
 
+// Using memoization;
+int static t[1001][1001];
+
+bool subSetSumMemoization(int arr[],int sum,int n){
+    if(sum == 0){
+        return true;
+    }
+    if(n == 0){
+        return false;
+    }
+    if(t[n][sum] != -1){
+        return t[n][sum];
+    }
+    if(arr[n-1] <= sum){
+        return t[n][sum] = subSetSumRecursion(arr,sum-arr[n-1],n-1)
+               or subSetSumRecursion(arr,sum,n-1);
+    }
+    else{
+        return t[n][sum] = subSetSumRecursion(arr,sum,n-1);
+    }
+}
+
+
+// Using Recursion
+bool subSetSumRecursion(int arr[],int sum,int n){
+    if(sum == 0){
+        return true;
+    }
+    if(n == 0){
+        return false;
+    }
+    if(arr[n-1] <= sum){
+        return subSetSumRecursion(arr,sum-arr[n-1],n-1)
+               or subSetSumRecursion(arr,sum,n-1);
+    }
+    else{
+        return subSetSumRecursion(arr,sum,n-1);
+    }
+}
+
+
 
 
 bool subSetSum(int Array[],int sum,int n){
