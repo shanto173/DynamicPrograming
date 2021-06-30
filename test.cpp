@@ -2,58 +2,45 @@
 using namespace std;
 
 
-
-
-
-
-int coinChangeMinNumOfCoins(int arr[],int sum,int n){
-    int t[n+1][sum+1];
-
+int longestCommonSubstring(string a,string b,int n,int m){
+    int t[n+1][m+1];
+    int res = 0;
+    vector<int> v;
     for (int i = 0; i < n+1; ++i)
     {
-        for (int j = 0; j < sum+1; ++j)
+        for (int j = 0; j < m+1; ++j)
         {
-            if(j == 0){
+            if(i==0 || j == 0){
                 t[i][j] = 0;
             }
-            if(i == 0){
-                t[i][j] = INT_MAX-1;
-            }
         }
     }
-    for (int i = 1; i < sum+1; ++i)
+    for (int i = 1; i < n+1; ++i)
     {
-        if(i % arr[0] == 0){
-            t[1][i] = i/arr[0]; 
-        }
-        else{
-            t[1][i] = INT_MAX-1;
-        }
-    }
-
-    for (int i = 2; i < n+1; ++i)
-    {
-        for (int j = 1; j < sum+1; ++j)
+        for (int j = 1; j < m+1; ++j)
         {
-            if(arr[i-1] <= j){
-                t[i][j] = min(t[i][j-arr[i-1]]+1,t[i-1][j]);
+            if(a[i-1] == b[j-1]){
+                t[i][j] = 1 + t[i-1][j-1];
+                res = max(res,t[i][j]);
             }
             else{
-                t[i][j] = t[i-1][j];
+                t[i][j] = 0;
             }
         }
     }
-    return t[n][sum];
-
+    return res;
 }
 
 
 int main(){
 
-    int arr[] = {1, 2, 3};
-    int n = 3;
-    int sum = 5;
-    cout<<coinChangeMinNumOfCoins(arr,sum,n);
+    string a = "aaaa";
+    string b = "a";
+
+    int n = 6;
+    int m = 6;
+
+    cout<<longestCommonSubstring(a,b,n,m);
 
 
 }
