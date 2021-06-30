@@ -24,8 +24,8 @@ int longestCommonSubsequence(string x,string y,int n,int m){
 
 int main(){
     memset(t,-1,sizeof(t));
-    string x = "abcdgh";
-    string y = "abedfhr";
+    string x = "abcdef";
+    string y = "abdefc";
     int n = x.size();
     int m = y.size();
 
