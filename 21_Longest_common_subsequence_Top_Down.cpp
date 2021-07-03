@@ -31,11 +31,11 @@ int longestCommonSubstring(string x,string y,int n,int m){
 
 int main(){
 
-    string x = "abcdef";
-    string y = "abdefc";
+    string x = "heap";
+    string y = "pea";
 
-    int n = 6;
-    int m = 6;
+    int n = x.size();
+    int m = y.size();
 
     cout<<longestCommonSubstring(x,y,n,m);
 
