@@ -54,11 +54,11 @@ string printLCS(string a,string b,int n,int m){
 
 int main(){
 
-    string a = "acbcf";
-    string b = "abcdaf";
+    string a = "abcd";
+    string b = "dbac";
 
-    int n = 5;
-    int m = 6;
+    int n = 4;
+    int m = 4;
 
     cout<<printLCS(a,b,n,m);
 
