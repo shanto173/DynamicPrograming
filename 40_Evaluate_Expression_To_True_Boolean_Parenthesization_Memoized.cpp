@@ -112,8 +112,8 @@ int main(){
     }
 
     int n = s.size();
-
-    cout<<evaluateExpressionTrueMemoized(s,0,n-1,1);
+    string s2 = "T|F^F&T|F^F^F^T";
+    cout<<evaluateExpressionTrueMemoized(s2,0,s2.size()-1,1);
 
 
 
